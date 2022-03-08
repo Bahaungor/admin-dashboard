@@ -3,6 +3,7 @@ body{
     margin: 0;
     @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
     font-family: 'Roboto', sans-serif;
+    box-sizing: border-box;
 }
 
 .main-container{
@@ -13,10 +14,12 @@ body{
 .main-container .sidebar{
     background-color: #1992d4;
     padding: 15px 15px;
-    min-width: 150px;
-    max-width: 150px;
-    width: 100%;
+    flex: 0 0 170px;
     color: white;
+}
+
+.main-container .container{
+    display: grid;
 }
 
 .sidebar .sidebar-title-icon{
@@ -26,8 +29,7 @@ body{
 }
 
 .sidebar > *{
-    display: flex;
-    flex-direction: column;
+    display: grid;
     gap: 10px;
 }
 
@@ -46,40 +48,43 @@ body{
 .sidebar-title > *,
 .sidebar-options > *,
 .sidebar-support > *{
-    display: flex;
+    display: grid;
+    grid-template-columns: auto auto;
     align-items: center;
     gap: 10px;
+    justify-content: start;
 }
 
 .sidebar a{
     text-decoration: none;
     color: white;
+    width:fit-content
 }
 
 /*Style first and second top menu row*/
 .top-menu > *{
-    display: flex;
+    display: grid;
+    grid-template-columns: auto 1fr auto auto auto;
     align-items: center;
     gap: 20px;
-    padding: 15px 25px;
+    padding: 10px 45px;
     background-color: white;
 }
 
-.search-box{
-    flex: 1;
+.top-menu .search-box{
     border: none;
     outline: none;
     background-color: #e2e8f0;
     border-radius: 10px;
-    padding-left: 10px;
     height: 25px;
-    margin-right: 30px;
+    margin-right: 50px;
 }
 
 .menu-first-row .profile-pic{
     height: 2.3rem;
-    background-color: rgb(255, 217, 0);
+    background-color: #facc15;
     border-radius: 50%;
+    padding: 5px;
 }
 
 .notification{
@@ -87,11 +92,128 @@ body{
 }
 
 .menu-second-row .profile-pic{
-    height: 3rem;
-    background-color: rgb(255, 217, 0);
+    height: 3.5rem;
+    background-color: #facc15;
     border-radius: 50%;
+    padding: 5px;
 }
 
+.menu-second-row > div:nth-child(2){
+    font-weight: 600;
+}
+
+.menu-second-row .greetings{
+    font-size: 13px;
+    margin-bottom: 5px;
+}
+
+.menu-second-row .button{
+    background-color: #1992d4;
+    padding: 7px 25px;
+    color: white;
+    border-radius: 35px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+/*Small container start*/
 .main-container .small-container{
     background-color: #e2e8f0;
+    padding: 25px 15px;
+    display: grid;
+    grid-template-columns: 5fr 2fr;
+    grid-template-rows: auto auto;
+    gap: 15px;
+}
+
+.small-container .projects-grid{
+    grid-column: 1;
+    grid-row: 1 / span 2;
+}
+
+.small-container .announcements-grid{
+    grid-column: 2;
+}
+
+.small-container .announcements-grid-container{
+    display: grid;
+    padding: 25px 20px;
+    background-color: white;
+    border-radius: 10px;
+    gap: 15px;
+}
+
+.announcements-grid .announcement-title{
+    font-weight: 600;
+}
+
+.announcement-border{
+    background-color: gray;
+    height: 1px;
+}
+
+.small-container .trending-grid-container{
+    display: grid;
+    padding: 10px 20px;
+    background-color: white;
+    border-radius: 10px;
+    gap: 15px;
+}
+
+.small-container .trending-item{
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 15px;
+    font-size: 0.8rem;
+    align-items: center;
+}
+
+.small-container .trending-grid{
+    grid-column: 2;
+}
+
+.trending-grid .profile-pic{
+    height: 2.3rem;
+    background-color: #facc15;
+    border-radius: 50%;
+    padding: 5px;
+}
+
+.project-grid-container{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.small-container .grid-title{
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.project-grid-container .project-grid-item{
+    padding: 30px 20px;
+    background-color: white;
+    border-radius: 5px;
+    border-left: 8px solid #f0b429;
+    box-shadow: 3px 3px 10px gray;
+}
+
+.project-grid-container .grid-card-buttons{
+    height: 1.3rem;
+    filter: invert(0.3)
+}
+
+.small-container .card-button-container{
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    justify-content: end;
+    gap: 15px;
+}
+
+.project-grid-item > div:first-child{
+    font-weight: 600;
+}
+
+.project-grid-item > div:last-child{
+    margin-top: 25px;
 }
